@@ -2,12 +2,16 @@ name: Run Playwright Tests in Firefox Only
 
 on:
   schedule:
-    - cron: '30 6 * * *'  # 12PM IST
+    - cron: '30 3 * * *'  # 9:00 AM IST
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      EMAIL: ${{ secrets.EMAIL }}
+      PASSWORD: ${{ secrets.PASSWORD }}
 
     steps:
       - name: Checkout code
