@@ -2,7 +2,7 @@ name: Run Playwright Tests in Firefox Only
 
 on:
   schedule:
-    - cron: '30 3 * * *'  # 9AM IST
+    - cron: '30 6 * * *'  # 12PM IST
   workflow_dispatch:
 
 jobs:
