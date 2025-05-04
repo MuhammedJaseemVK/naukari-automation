@@ -3,7 +3,7 @@ import { firefox, test } from "@playwright/test";
 test("Profile update", async () => {
   try {
     const browser = await firefox.launch({
-      headless: false,
+      headless: true,
     });
     const context = await browser.newContext();
     const page = await context.newPage();

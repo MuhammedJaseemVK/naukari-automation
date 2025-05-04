@@ -1,0 +1,28 @@
+name: Run Playwright Tests in Firefox Only
+
+on:
+  schedule:
+    - cron: '30 3 * * *'  # 9AM IST
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Firefox only
+        run: npx playwright install firefox
+
+      - name: Run Playwright tests
+        run: npx playwright test
